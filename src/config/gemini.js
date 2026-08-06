@@ -1,15 +1,8 @@
 const { GoogleGenAI } = require('@google/genai');
 
-const apiKey = process.env.GEMINI_API_KEY;
+// Automatically picks up GEMINI_API_KEY from process.env
+const aiClient = new GoogleGenAI(); 
 
-let aiClient = null;
-
-if (apiKey) {
-    aiClient = new GoogleGenAI({ apiKey });
-    console.log('✅ Gemini AI client initialized.');
-} else {
-    console.warn('⚠️ GEMINI_API_KEY not found. AI responses will be mocked until keys are added.');
-}
+console.log('✅ Gemini AI client initialized.');
 
 module.exports = aiClient;
-
